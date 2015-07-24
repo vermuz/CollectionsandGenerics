@@ -1,0 +1,14 @@
+: Collection
+Collection is a data structure in which Objects are stored.
+Objects can be Added, Deleted and can traversed in Collection.
+There are 4 type of basic Collection
+List : Ordered, Duplicates are allowed, Indexed
+Sets : May or may not Ordered. Duplicates are not allowed.
+Maps : Duplicate keys are not allowed.
+Queue : Ordered by FIFO or priority.
+ArrayList : Fast Iteration & Fast Random Access.
+Vector: Synchronized Method.
+LinkedList : Good for implementing Stack and Queue.
+HashSet : Fast Access, No Duplicates, No Ordering.
+LinkedHashSet : No Duplicates, Iterates by insertion order.
+TreeSet : No Duplicates, Iterates in sorted order.

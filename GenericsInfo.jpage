@@ -1,0 +1,6 @@
+/*
+Avoid runtime casting exceptions
+Detect early bugs
+Avoid Duplicate code
+Can be applied on classes, interfaces, methods and collections
+*/

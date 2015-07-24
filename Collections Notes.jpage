@@ -1,0 +1,111 @@
+/*
+ * 
+Java Collections Interview Questions and Answers
+
+How to filter a Java collection?
+
+The best way to filter a Java collection is to use Java 8. Java streams and lambdas can be used to filter a collection as below,
+
+List<Person> passedStudents = students.stream()
+    .filter(p -> p.getMark() > 50).collect(Collectors.toList());
+If for some reason you are not in a position to use Java 8 or the interviewer insists on pre Java 8 solution, 
+following is the best way to filter a Java collection.
+
+How to Sort a Java Collection?
+
+Use a Comparator to sort a Java Collection.
+
+  
+List<Animal> animals = new ArrayList<Animal>();
+Comparator<Animal> comparator = new Comparator<Animal>() {
+    public int compare(Animal c1, Animal c2) {
+        //sort logic here
+		return c2.getHeight() - c1.getHeight();		
+    }
+};
+
+Collections.sort(animals, comparator);
+If Animal implements Comparable, then following is just enough.
+
+Collections.sort(animals);
+Best way to convert a List to a Set.
+
+Instantiate Set using the HashSet.
+
+Set<Animal> animalSet = new HashSet<Animal>(animalList);
+When to use LinkedList over ArrayList?
+
+Java’s LinkedList implementation is a doubly linked list. ArrayList is a dynamically resizing array implementation. 
+So to compare between LinkedList and ArrayList is almost similar to comparing a doubly linked list and a dynamically resizing array.
+
+LinkedList is convenient for back and forth traversal sequentially, but random access to an element is proportionally costlier 
+to the size of the LinkedList. At the same time, ArrayList is best suited for random access using a position.
+
+LinkedList is best for inserting and deleting an element at any place of the LinkedList. An ArrayList is not suited for 
+inserting or deleting elements in the mid of the ArrayList. Since everytime a new element is inserted, all the elements 
+should be shifted down and dynamic resizing should be done.
+
+With respect to memory usage of LinkedList and ArrayList, LinkedList collection uses more memory as it needs to keep 
+pointers to the adjacent elements. This overhead is not present for the ArrayList, just the memory required for the data is sufficient. 
+Consider these factors and decide between LinkedList or ArrayList depending on the use case.
+
+Difference between HashMap and Hashtable.
+
+HashMap is not synchronized but Hashtable is synchronized.
+HashMap allows null as key and value. Since the key is unique, only one null is allowed as key. Hashtable does not allows null 
+in key or value.
+LinkedHashMap extends HashMap and so can be converted. It helps to have a fixed iteration order. It is not possible with Hashtable.
+In essense, there is almost no reason to use a Java Hashtable.
+Explain Java hashCode() and equals() method.
+
+equals() method is used to determine the equality of two Java objects. When we have a custom class we need to override the equals() method and provide an implementation so that it can be used to find the equality between two instance of it. By Java specification there is a contract between equals() and hashCode(). It says,
+
+"if two objects are equal, that is obj1.equals(obj2) is true then, obj1.hashCode() and obj2.hashCode() must return same integer"
+
+Whenever we choose to override equals(), then we must override the hashCode() method. hashCode() is used to calculate 
+the position bucket and keys.
+
+What is Java Priority Queue?
+
+Java PriorityQueue is a data structure that is part of Java collections framework. It is an implementation of a Queue 
+wherein the order of elements will be decided based on priority of each elements. A comparator can be provided in the 
+constructor when a PriorityQueue is instantiated. That comparator will decide the sort order of elements in t
+he PriorityQueue collection instance.
+
+Difference between ArrayList and Vector.
+
+We have beaten this enough in a old article difference between Vector and ArrayList in Java.
+
+Vector is synchronized and ArrayList is not.
+Vector doubles its internal size when its increased. But, ArrayList increases by half of its size when its increased.
+ArrayList gives better performance over Vector as its not synchronized.
+ArrayList’s Iterators are fail-fast but Vector’s Enumeration is not fail-fast.
+ArrayList was introduced in Java 1.2 and Vector even before that. But initially Vector was not part of Java collections 
+framework and later made part of collections framework.
+As of now, there is no need to use Vector and it can be considered legacy and to be deprecated. If you need synchronized 
+collection an ArrayList can be synchronized and used.
+What are Java Concurrent Collection Classes?
+
+Concurrent Collections were introduced in Java 5 along with annotations and generics. These classes are in 
+java.util.concurrent package and they help solve common concurrency problems. They are efficient and helps us
+to reduce common boilerplate concurrency code.
+ Important concurrent collection classes are BlockingQueue, ConcurrentMap, ConcurrentNavigableMap and ExecutorService.
+
+Explain about Comparable and Comparator
+
+A class can implement the Comparable interface to define the natural ordering of the objects. 
+If you take a list of Strings, generally it is ordered by alphabetical comparisons. So when a String class is created, 
+it can be made to implement Comparable interface and override the compareTo method to provide the comparison definition. 
+We can use them as,
+
+str1.compareTo(str2);
+Now, what will you do if you want to compare two strings based on it length. We go for the Comparator. 
+We create a class and let it implement the Comparator interface and override compare method. We can use them as,
+
+Collections.sort(listOfStrings, comparatorObj);
+The natural ordering is up to the person designing the classes. Comparator can be used in that scenario also and 
+it can be used when we need multiple sorting options. Imagine a situation where a class is already available and 
+we cannot modify it. In that case also, Comparator is the choice.
+
+ */
+*/
